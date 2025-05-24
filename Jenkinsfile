@@ -5,7 +5,7 @@ pipeline {
         stage('run') {
             steps {
                 sh'''
- 		kubectl delete -f svc.yaml --ignore-not-found
+ 		kubectl delete -f service.yaml --ignore-not-found
                 kubectl apply -f service.yaml
                 '''
             }
