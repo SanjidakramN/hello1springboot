@@ -6,7 +6,7 @@ pipeline {
         stage('build') {
             steps {
                 mavenBuild()
-		withCredentials([usernamePassword(credentialsId: 'github-id', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]) {
+		withCredentials([usernamePassword(credentialsId: 'docker-cred', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]) {
                 sh'''
                 docker build -t sanjidakram/java-image .
                 docker login -u $USERNAME -p $PASSWORD
